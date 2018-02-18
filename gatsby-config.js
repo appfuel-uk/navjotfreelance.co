@@ -1,3 +1,4 @@
+require('dotenv').config();
 const config = require('./src/config/index.js');
 
 module.exports = {
@@ -13,6 +14,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_DELIVERY_API_TOKEN,
+      },
+    },
     // `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-google-analytics`,

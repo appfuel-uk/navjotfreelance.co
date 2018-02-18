@@ -1,48 +1,31 @@
 const path = require('path');
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
+exports.createPages = ({ graphql, boundActionCreators }) => {
+  // Create Gallery Pages based on gallery.js template
   const { createPage } = boundActionCreators;
-
-  return graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            excerpt(pruneLength: 400)
-            html
-            id
-            frontmatter {
-              templateKey
-              path
-              date
-              title
-              description
+  return new Promise(resolve => {
+    graphql(`
+      {
+        allContentfulGallery {
+          edges {
+            node {
+              slug
             }
           }
         }
       }
-    }
-  `).then(result => {
-    if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString())); // eslint-disable-line
-      return Promise.reject(result.errors);
-    }
-
-    return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const pagePath = node.frontmatter.path;
-      createPage({
-        path: pagePath,
-        component: path.resolve(
-          `src/templates/${String(node.frontmatter.templateKey)}.js`,
-        ),
-        // additional data can be passed via context
-        context: {
-          path: pagePath,
-        },
+    `).then(result => {
+      result.data.allContentfulGallery.edges.map(({ node }) => {
+        createPage({
+          path: `gallery/${node.slug}`,
+          component: path.resolve(`./src/templates/gallery.js`),
+          context: {
+            slug: node.slug,
+          },
+        });
       });
+
+      resolve();
     });
   });
 };

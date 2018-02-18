@@ -1,5 +1,5 @@
 module.exports = {
-  siteName: 'Kickoff GatsbyJs',
+  siteName: 'Hitnotic Studio',
   author: 'Parminder Klair',
   description: 'A starting point using ReactJs, bundled with awesome GatsbyJs.',
   siteUrl: 'http://kickoff-gatsbyjs.netlify.com',

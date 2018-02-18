@@ -1,71 +1,141 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import Helmet from 'react-helmet';
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-}
-
-export default class ContactPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
-    })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error));
-  };
-
-  render() {
-    return (
-      <div>
-        <Helmet title="Contact" />
-        <h1>Contact</h1>
-        <form
-          name="contact"
-          method="post"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          netlify="true"
-          onSubmit={this.handleSubmit}
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p>
-            <label>
-              Your Name:{' '}
-              <input type="text" name="name" onChange={this.handleChange} />
-            </label>
-          </p>
-          <p>
-            <label>
-              Your Email:{' '}
-              <input type="email" name="email" onChange={this.handleChange} />
-            </label>
-          </p>
-          <p>
-            <label>
-              Message: <textarea name="message" onChange={this.handleChange} />
-            </label>
-          </p>
-          <p>
-            <button type="submit">Send</button>
-          </p>
-        </form>
+export default ({ data }) => {
+  const { contentfulContact: contact } = data;
+  // console.log('data', contact);
+  return (
+    <div className="eloisa_fn_content">
+      <div className="eloisa_fn_page_splitscreen contact">
+        <div className="eloisa_fn_page_splitleft">
+          <div className="splitscreen_title">
+            <div className="in">
+              <div className="eloisa_fn_address_wrap">
+                <div className="eloisa_fn_address_wrap_in">
+                  <div className="address_info">
+                    <p className="address">Address: {contact.address}</p>
+                    <p className="phone">Phone: +{contact.telephone}</p>
+                    <p className="email">
+                      Email: <a href="#">{contact.email}</a>
+                    </p>
+                  </div>
+                  <div className="address_social_icons">
+                    <ul>
+                      <li>
+                        <a href={contact.twitter}>
+                          <i className="xcon-twitter" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href={contact.instagram}>
+                          <i className="xcon-instagram" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href={contact.linkedin}>
+                          <i className="xcon-linkedin" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href={contact.github}>
+                          <i className="xcon-github" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="splitscreen_title_back">
+            <div className="bg" />
+            <div className="eloisa_fn_split_overlay" />
+          </div>
+        </div>
+        <div className="eloisa_fn_page_splitright contact">
+          <div className="in">
+            <div className="eloisa_fn_main_contact_wrap">
+              <div className="container">
+                <div className="eloisa_fn_title contact">
+                  <h3>
+                    <span>Contact Us</span>
+                  </h3>
+                </div>
+                <div className="eloisa_fn_input_wrap">
+                  <form
+                    action="/"
+                    method="post"
+                    className="contact_form"
+                    id="contact_form"
+                  >
+                    <div
+                      className="returnmessage"
+                      data-success="Your message has been received, We will contact you soon."
+                    />
+                    <div className="empty_notice">
+                      <span>Please Fill Required Fields</span>
+                    </div>
+                    <div className="first_row">
+                      <ul>
+                        <li>
+                          <div className="item">
+                            <input
+                              id="name"
+                              type="text"
+                              placeholder="Your Name"
+                            />
+                          </div>
+                        </li>
+                        <li>
+                          <div className="item">
+                            <input
+                              id="email"
+                              type="text"
+                              placeholder="Your Email"
+                            />
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="subject">
+                      <input id="subject" type="text" placeholder="Subject" />
+                    </div>
+                    <div className="message">
+                      <textarea id="message" placeholder="Message" />
+                    </div>
+                    <div
+                      className="eloisa_fn_button_effect"
+                      data-position="left"
+                      data-text-color=""
+                      data-border-color=""
+                      data-bg-color=""
+                    >
+                      <a id="send_message" href="#">
+                        <span>Send</span>
+                      </a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <footer className="eloisa_fn_footer" />
+          </div>
+        </div>
       </div>
-    );
+    </div>
+  );
+};
+
+export const query = graphql`
+  query ContactQuery {
+    contentfulContact {
+      id
+      address
+      telephone
+      email
+      twitter
+      instagram
+      linkedin
+      github
+    }
   }
-}
+`;

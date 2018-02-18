@@ -1,6 +1,8 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import Script from 'react-load-script';
+
+import Gallery from '../components/Gallery';
+import { HTMLContent } from '../components/Content';
 
 export default class IndexPage extends React.Component {
   handleScriptLoad() {
@@ -17,21 +19,68 @@ export default class IndexPage extends React.Component {
   }
 
   render() {
+    const { data } = this.props;
+    const { edges: gallery } = data.allContentfulGallery;
+    const { contentfulHome: home } = data;
+    // console.log('data', home);
+
     return (
-      <div>
+      <div className="eloisa_fn_content">
         <Script
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={() => this.handleScriptLoad()}
         />
-        <h1>Hi people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <Link to="/posts">Blog</Link>
-        <br />
-        <Link to="/about">About</Link>
-        <br />
-        <Link to="/contact">Contact</Link>
+        <div className="eloisa_fn_content_in">
+          <div className="space70" />
+          <div className="space50" />
+          <div className="elosia_fn_section">
+            <div className="eloisa_fn_about_wrap">
+              <div className="eloisa_fn_about_title">
+                <h3>{home.title}</h3>
+              </div>
+              <div className="eloisa_fn_about_description">
+                <HTMLContent
+                  content={home.introText.childMarkdownRemark.html}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="space70" />
+          <div className="space50" />
+          <Gallery gallery={gallery} />
+        </div>
       </div>
     );
   }
 }
+
+export const query = graphql`
+  query HomeQuery {
+    allContentfulGallery(limit: 8, sort: { fields: [date], order: DESC }) {
+      edges {
+        node {
+          title
+          id
+          slug
+          date(formatString: "M.DD.YYYY")
+          cover {
+            title
+            sizes(maxWidth: 530) {
+              ...GatsbyContentfulSizes_noBase64
+            }
+          }
+        }
+      }
+    }
+    contentfulHome {
+      title
+      slug
+      id
+      introText {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+  }
+`;
