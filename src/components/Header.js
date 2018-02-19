@@ -83,9 +83,9 @@ const Header = ({ home }) => (
         <div className="eloisa_fn_widget_menu_text">
           <HTMLContent content={home.quote.childMarkdownRemark.html} />
         </div>
-        <div className="eloisa_fn_widget_menu_sign">
+        {/* <div className="eloisa_fn_widget_menu_sign">
           <img src="/img/sign/sign-half-dark.png" alt="#" />
-        </div>
+</div> */}
         <div className="eloisa_fn_second_menu">
           <div className="mobile_menu_wrap">
             <ul className="nav">
@@ -102,7 +102,7 @@ const Header = ({ home }) => (
           </div>
         </div>
         {/* https://github.com/gatsbyjs/gatsby/blob/master/examples/gatsbygram/scrape.js?utm_source=hashnode.com */}
-        <div className="eloisa_fn_instagram_stream widget_menu">
+        {/* <div className="eloisa_fn_instagram_stream widget_menu">
           <div className="instagram_stream_wrap">
             <div className="title_instagram">
               <div className="title_instagram_in">
@@ -119,7 +119,7 @@ const Header = ({ home }) => (
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   </header>

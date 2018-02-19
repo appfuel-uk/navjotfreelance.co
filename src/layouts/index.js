@@ -40,12 +40,6 @@ export const query = graphql`
       title
       slug
       id
-      sign {
-        title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
-        }
-      }
       quote {
         childMarkdownRemark {
           html

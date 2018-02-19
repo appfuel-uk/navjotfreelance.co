@@ -114,7 +114,6 @@ export const query = graphql`
       title
       id
       slug
-      category
       location
       date(formatString: "M.DD.YYYY")
       description {
