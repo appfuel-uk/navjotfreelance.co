@@ -22,7 +22,7 @@ export default class IndexPage extends React.Component {
     const { data } = this.props;
     const { edges: gallery } = data.allContentfulGallery;
     const { contentfulHome: home } = data;
-    // console.log('data', home);
+    // console.log('gallery', gallery);
 
     return (
       <div className="eloisa_fn_content">
@@ -56,7 +56,7 @@ export default class IndexPage extends React.Component {
 
 export const query = graphql`
   query HomeQuery {
-    allContentfulGallery(limit: 8, sort: { fields: [date], order: DESC }) {
+    allContentfulGallery(limit: 8, sort: { fields: [date], order: ASC }) {
       edges {
         node {
           title
@@ -66,7 +66,7 @@ export const query = graphql`
           cover {
             title
             sizes(maxWidth: 530) {
-              ...GatsbyContentfulSizes_noBase64
+              ...GatsbyContentfulSizes
             }
           }
         }

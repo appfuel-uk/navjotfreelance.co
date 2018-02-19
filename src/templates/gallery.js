@@ -38,7 +38,7 @@ export default class Gallery extends React.Component {
   }
   render() {
     const { contentfulGallery: gallery } = this.props.data;
-    // console.log('gallery data', gallery);
+    console.log('gallery data', gallery);
 
     return (
       <div className="eloisa_fn_content">
@@ -112,15 +112,15 @@ export const query = graphql`
       }
       cover {
         title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
+        sizes(maxWidth: 690) {
+          ...GatsbyContentfulSizes
         }
       }
       images {
         title
         description
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
+        sizes(maxWidth: 690) {
+          ...GatsbyContentfulSizes
         }
       }
     }
