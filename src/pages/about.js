@@ -77,8 +77,8 @@ export const query = graphql`
       id
       coverImage {
         title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
+        sizes(maxWidth: 700) {
+          ...GatsbyContentfulSizes
         }
       }
       bio {
