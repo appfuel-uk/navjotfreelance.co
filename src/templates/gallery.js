@@ -7,6 +7,12 @@ import GalleryImage from '../components/GalleryImage';
 export default class Gallery extends React.Component {
   componentDidMount() {
     /* eslint-disable */
+
+    jQuery('.masonry2').isotope({
+      itemSelector: '.item',
+      masonry: {},
+    });
+
     jQuery('.open-popup-link').magnificPopup({
       type: 'inline',
       midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
@@ -34,11 +40,17 @@ export default class Gallery extends React.Component {
         mainClass: 'mfp-fade',
       });
     });
+
     /* eslint-enable */
   }
+
+  componentDidUpdate() {
+    console.log('update');
+  }
+
   render() {
     const { contentfulGallery: gallery } = this.props.data;
-    console.log('gallery data', gallery);
+    // console.log('gallery data', gallery);
 
     return (
       <div className="eloisa_fn_content">
