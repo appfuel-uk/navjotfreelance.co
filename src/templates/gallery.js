@@ -49,7 +49,7 @@ export default class Gallery extends React.Component {
   }
 
   render() {
-    const { contentfulGallery: gallery } = this.props.data;
+    const { contentfulPortfolio: gallery } = this.props.data;
     // console.log('gallery data', gallery);
 
     return (
