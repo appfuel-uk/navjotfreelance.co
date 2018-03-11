@@ -41,7 +41,16 @@ export default ({ contact }) => (
           </li>
           <li>
             <a href={contact.medium}>
-              <i className="xcon-medium" />
+              <span
+                style={{
+                  fontWeight: 'bold',
+                  textDecoration: 'none',
+                  fontSize: '15px',
+                  paddingLeft: '2px',
+                }}
+              >
+                M
+              </span>
             </a>
             <div className="name medium">
               <span>Medium</span>

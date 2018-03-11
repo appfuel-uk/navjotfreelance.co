@@ -18,16 +18,16 @@ export default class Gallery extends React.Component {
       midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
     });
 
-    jQuery('.gallery').each(function() {
-      // the containers for all your galleries
-      jQuery(this).magnificPopup({
-        delegate: 'a', // the selector for gallery item
-        type: 'image',
-        gallery: {
-          enabled: true,
-        },
-      });
-    });
+    // jQuery('.gallery').each(function() {
+    //   // the containers for all your galleries
+    //   jQuery(this).magnificPopup({
+    //     delegate: 'a', // the selector for gallery item
+    //     type: 'image',
+    //     gallery: {
+    //       enabled: true,
+    //     },
+    //   });
+    // });
     jQuery('.gallery_zoom').each(function() {
       // the containers for all your galleries
       jQuery(this).magnificPopup({
@@ -38,6 +38,7 @@ export default class Gallery extends React.Component {
         },
         removalDelay: 300,
         mainClass: 'mfp-fade',
+        prependTo: $('#___gatsby'),
       });
     });
 
@@ -59,7 +60,7 @@ export default class Gallery extends React.Component {
 
           <div className="eloisa_fn_breadcrumbs portfolio">
             <p>
-              <Link to="/">Home</Link> / <span>Gallery</span>
+              <Link to="/">Home</Link> / <span>portfolio</span>
             </p>
           </div>
 

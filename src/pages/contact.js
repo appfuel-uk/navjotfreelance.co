@@ -59,7 +59,16 @@ export default class About extends React.Component {
                         </li>
                         <li>
                           <a href={contact.medium}>
-                            <i className="xcon-medium" />
+                            <span
+                              style={{
+                                fontWeight: 'bold',
+                                textDecoration: 'none',
+                                fontSize: '15px',
+                                paddingLeft: '2px',
+                              }}
+                            >
+                              M
+                            </span>
                           </a>
                         </li>
                         <li>

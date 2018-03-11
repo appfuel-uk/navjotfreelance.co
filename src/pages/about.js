@@ -35,8 +35,7 @@ export default class About extends React.Component {
             <div className="splitscreen_title">
               <div className="in">
                 <div className="title_holder">
-                  <h1>About Me</h1>
-                  <p>All about me, my story</p>
+                  <h1>Navjot Singh</h1>
                 </div>
               </div>
             </div>
