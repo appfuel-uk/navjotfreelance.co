@@ -8,6 +8,10 @@
   height: auto;
 }
 
+p {
+  margin-bottom: 1rem !important;
+}
+
 /* .mfp-content {
   width: auto;
   height: 92%;
