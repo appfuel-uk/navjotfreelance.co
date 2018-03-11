@@ -20,7 +20,7 @@ export default class IndexPage extends React.Component {
 
   render() {
     const { data } = this.props;
-    const { edges: gallery } = data.allContentfulGallery;
+    const { edges: gallery } = data.allContentfulPortfolio;
     const { contentfulHome: home } = data;
     // console.log('gallery', gallery);
 
@@ -56,13 +56,12 @@ export default class IndexPage extends React.Component {
 
 export const query = graphql`
   query HomeQuery {
-    allContentfulGallery(limit: 8, sort: { fields: [date], order: ASC }) {
+    allContentfulPortfolio {
       edges {
         node {
           title
           id
           slug
-          date(formatString: "M.DD.YYYY")
           cover {
             title
             sizes(maxWidth: 530) {

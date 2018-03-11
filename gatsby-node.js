@@ -6,7 +6,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise(resolve => {
     graphql(`
       {
-        allContentfulGallery {
+        allContentfulPortfolio {
           edges {
             node {
               slug
@@ -15,7 +15,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
       }
     `).then(result => {
-      result.data.allContentfulGallery.edges.map(({ node }) => {
+      result.data.allContentfulPortfolio.edges.map(({ node }) => {
         createPage({
           path: `gallery/${node.slug}`,
           component: path.resolve(`./src/templates/gallery.js`),

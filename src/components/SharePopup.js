@@ -40,11 +40,20 @@ export default ({ contact }) => (
             </div>
           </li>
           <li>
-            <a href={contact.github}>
-              <i className="xcon-github" />
+            <a href={contact.medium}>
+              <i className="xcon-medium" />
             </a>
-            <div className="name github">
-              <span>Github</span>
+            <div className="name medium">
+              <span>Medium</span>
+              <div className="effect" />
+            </div>
+          </li>
+          <li>
+            <a href={contact.behance}>
+              <i className="xcon-behance" />
+            </a>
+            <div className="name behance">
+              <span>Behance</span>
               <div className="effect" />
             </div>
           </li>

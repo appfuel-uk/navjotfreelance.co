@@ -67,7 +67,7 @@ export default class Gallery extends React.Component {
             </p>
           </div>
 
-          <div className="eloisa_fn_proofing_category">
+          {/* <div className="eloisa_fn_proofing_category">
             <ul>
               <li>
                 <span className="label">Location:</span>
@@ -89,7 +89,7 @@ export default class Gallery extends React.Component {
                 </span>
               </li>
             </ul>
-          </div>
+    </div> */}
 
           <div className="space70" />
           <div className="elosia_fn_section">
@@ -110,12 +110,10 @@ export default class Gallery extends React.Component {
 
 export const query = graphql`
   query GalleryQuery($slug: String!) {
-    contentfulGallery(slug: { eq: $slug }) {
+    contentfulPortfolio(slug: { eq: $slug }) {
       title
       id
       slug
-      location
-      date(formatString: "M.DD.YYYY")
       description {
         childMarkdownRemark {
           html

@@ -6,7 +6,7 @@ export default () => (
     <div className="space40" />
     <footer className="eloisa_fn_footer">
       <div className="eloisa_fn_footer_wrap">
-        <p>Copyright 2018 Hitnotic Studio</p>
+        <p>Copyright 2018 Navjot Singh</p>
       </div>
     </footer>
     <div className="space70" />

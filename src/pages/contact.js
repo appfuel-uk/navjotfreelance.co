@@ -58,8 +58,13 @@ export default class About extends React.Component {
                           </a>
                         </li>
                         <li>
-                          <a href={contact.github}>
-                            <i className="xcon-github" />
+                          <a href={contact.medium}>
+                            <i className="xcon-medium" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href={contact.behance}>
+                            <i className="xcon-behance" />
                           </a>
                         </li>
                       </ul>
@@ -158,7 +163,8 @@ export const query = graphql`
       twitter
       instagram
       linkedin
-      github
+      medium
+      behance
     }
   }
 `;

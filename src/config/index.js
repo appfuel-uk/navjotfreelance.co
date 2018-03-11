@@ -1,8 +1,8 @@
 module.exports = {
-  siteName: 'Hitnotic Studio',
-  author: 'Parminder Klair',
-  description: 'A starting point using ReactJs, bundled with awesome GatsbyJs.',
-  siteUrl: 'http://kickoff-gatsbyjs.netlify.com',
+  siteName: 'Navjot Singh',
+  author: 'Navjot Singh',
+  description: '',
+  siteUrl: '',
   googleAnalytics: '',
   backgroundColor: '#e0e0e0',
   themeColor: '#c62828',
