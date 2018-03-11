@@ -64,29 +64,29 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: config.siteName,
-    //     short_name: config.siteName,
-    //     description: config.description,
-    //     start_url: config.siteUrl,
-    //     background_color: config.backgroundColor,
-    //     theme_color: config.themeColor,
-    //     display: 'minimal-ui',
-    //     icons: [
-    //       {
-    //         src: '/img/logo-48.png',
-    //         sizes: '192x192',
-    //         type: 'image/png',
-    //       },
-    //       {
-    //         src: '/img/logo-1024.png',
-    //         sizes: '512x512',
-    //         type: 'image/png',
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: config.siteName,
+        short_name: config.siteName,
+        description: config.description,
+        start_url: config.siteUrl,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'minimal-ui',
+        icons: [
+          {
+            src: '/img/logo/logo.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/img/logo/logo.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
+    },
   ],
 };
