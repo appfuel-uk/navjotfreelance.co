@@ -8,10 +8,12 @@ const Header = ({ home }) => (
       <div className="eloisa_fn_header_in_relative">
         <div className="eloisa_fn_logo">
           <Link className="logo_dark" to="/">
-            <img src="/img/logo/logo.png" alt="#" />
+            <span style={{ fontSize: '28px' }}>NS</span>
+            {/* <img src="/img/logo/logo2.png" alt="#" /> */}
           </Link>
           <Link className="logo_light" to="/">
-            <img src="/img/logo/logo-light.png" alt="#" />
+            <span style={{ fontSize: '28px' }}>NS</span>
+            {/* <img src="/img/logo/logo2.png" alt="#" /> */}
           </Link>
         </div>
         <div className="eloisa_fn_nav_menu_wrap">
