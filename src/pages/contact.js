@@ -30,7 +30,13 @@ export default class About extends React.Component {
         <div className="eloisa_fn_page_splitscreen contact">
           <div className="eloisa_fn_page_splitleft">
             <div className="splitscreen_title">
-              <div className="in">
+              <div
+                className="in"
+                style={{
+                  verticalAlign: 'top',
+                  paddingTop: '3rem',
+                }}
+              >
                 <div className="eloisa_fn_address_wrap">
                   <div className="eloisa_fn_address_wrap_in">
                     <div className="address_info">
