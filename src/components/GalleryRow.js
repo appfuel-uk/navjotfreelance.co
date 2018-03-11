@@ -18,7 +18,7 @@ export default ({ item }) => {
         <div className="img_span">
           <Link to={`/gallery/${item.slug}`}>
             <span className="title">
-              {item.title}
+              Look Inside
               <span className="line" />
             </span>
           </Link>
