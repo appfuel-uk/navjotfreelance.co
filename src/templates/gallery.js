@@ -94,7 +94,7 @@ export default class Gallery extends React.Component {
           <div className="space70" />
           <div className="elosia_fn_section">
             <div className="eloisa_fn_portfolio_list_wrap" data-column="3">
-              {gallery.images && (
+              {gallery.images.length !== 0 && (
                 <ul className="masonry2 gallery_zoom">
                   {gallery.images.map((item, index) => (
                     <GalleryImage key={index} item={item} />
