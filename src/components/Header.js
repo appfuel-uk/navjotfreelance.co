@@ -2,23 +2,100 @@ import React from 'react';
 import Link from 'gatsby-link';
 import { HTMLContent } from '../components/Content';
 
-const Header = ({ home }) => (
-  <header className="eloisa_fn_header">
-    <div className="eloisa_fn_header_in">
-      <div className="eloisa_fn_header_in_relative">
-        <div className="eloisa_fn_logo">
-          <Link className="logo_dark" to="/">
-            <span style={{ fontSize: '28px' }}>NS</span>
-            {/* <img src="/img/logo/logo2.png" alt="#" /> */}
-          </Link>
-          <Link className="logo_light" to="/">
-            <span style={{ fontSize: '28px' }}>NS</span>
-            {/* <img src="/img/logo/logo2.png" alt="#" /> */}
-          </Link>
+export default class Header extends React.Component {
+  componentDidMount() {
+    const W = jQuery(window).width();
+    const mmenu = jQuery('.eloisa_fn_mobile_menu');
+    const trigger = jQuery('.eloisa_fn_hamburger .hamburger');
+
+    if (W > 1040) {
+      mmenu.slideUp();
+      trigger.removeClass('is-active');
+    }
+
+    // const hamburger = jQuery('.hamburger');
+    // const mobileMenu = jQuery('.eloisa_fn_mobile_menu');
+    // const header = jQuery('.eloisa_fn_header');
+    // const mobMenu = jQuery('.eloisa_fn_mobile_menu .mobile_menu_wrap');
+
+    // hamburger.on('click', function() {
+    //   const element = jQuery(this);
+
+    //   if (element.hasClass('is-active')) {
+    //     element.removeClass('is-active');
+    //     mobileMenu.slideUp();
+    //     header.removeClass('opened');
+    //   } else {
+    //     element.addClass('is-active');
+    //     mobileMenu.slideDown();
+    //     header.addClass('opened');
+    //     mobMenu.addClass('color');
+    //   }
+    //   return false;
+    // });
+  }
+
+  render() {
+    const { home } = this.props;
+    return (
+      <header className="eloisa_fn_header">
+        <div className="eloisa_fn_header_in">
+          <div className="eloisa_fn_header_in_relative">
+            <div className="eloisa_fn_logo">
+              <Link className="logo_dark" to="/">
+                <span style={{ fontSize: '28px' }}>NS</span>
+                {/* <img src="/img/logo/logo2.png" alt="#" /> */}
+              </Link>
+              <Link className="logo_light" to="/">
+                <span style={{ fontSize: '28px' }}>NS</span>
+                {/* <img src="/img/logo/logo2.png" alt="#" /> */}
+              </Link>
+            </div>
+            <div className="eloisa_fn_nav_menu_wrap">
+              <div className="menu_wrap">
+                <ul className="nav__hor">
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about/">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact/">Contact</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="eloisa_fn_header_icons_bar">
+                <a className="share" href="#">
+                  <img className="svg" src="/img/svg/share.svg" alt="#" />
+                </a>
+              </div>
+              <div className="eloisa_fn_trigger">
+                <a href="#">
+                  <span className="a" />
+                  <span className="b" />
+                  <span className="c" />
+                </a>
+              </div>
+              <div className="eloisa_fn_hamburger">
+                <div className="hamburger hamburger--collapse-r">
+                  <div className="hamburger-box">
+                    <div className="hamburger-inner" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="eloisa_fn_nav_menu_wrap">
-          <div className="menu_wrap">
-            <ul className="nav__hor">
+
+        <div className="eloisa_fn_mobile_menu">
+          <div className="mobile_menu_wrap">
+            <div className="eloisa_fn_header_icons_bar mobile">
+              <a className="share" href="#">
+                <img className="svg" src="/img/svg/share.svg" alt="#" />
+              </a>
+            </div>
+            <ul className="nav">
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -30,101 +107,37 @@ const Header = ({ home }) => (
               </li>
             </ul>
           </div>
-          <div className="eloisa_fn_header_icons_bar">
-            <a className="share" href="#">
-              <img className="svg" src="/img/svg/share.svg" alt="#" />
-            </a>
-          </div>
-          <div className="eloisa_fn_trigger">
-            <a href="#">
-              <span className="a" />
-              <span className="b" />
-              <span className="c" />
-            </a>
-          </div>
-          <div className="eloisa_fn_hamburger">
-            <div className="hamburger hamburger--collapse-r">
-              <div className="hamburger-box">
-                <div className="hamburger-inner" />
+        </div>
+
+        <div className="eloisa_fn_overlay_window" />
+        <div className="eloisa_fn_widget_menu_wrap">
+          <div className="eloisa_fn_widget_menu_in scrollable">
+            <span className="eloisa_fn_widget_menu_closer">
+              <a href="#" />
+              <span />
+              <span />
+            </span>
+            <div className="eloisa_fn_widget_menu_text">
+              <HTMLContent content={home.quote.childMarkdownRemark.html} />
+            </div>
+            <div className="eloisa_fn_second_menu">
+              <div className="mobile_menu_wrap">
+                <ul className="nav">
+                  <li>
+                    <Link to="/">Homepage</Link>
+                  </li>
+                  <li>
+                    <Link to="/about/">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact/">Contact</Link>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div className="eloisa_fn_mobile_menu">
-      <div className="mobile_menu_wrap">
-        <div className="eloisa_fn_header_icons_bar mobile">
-          <a className="share" href="#">
-            <img className="svg" src="/img/svg/share.svg" alt="#" />
-          </a>
-        </div>
-        <ul className="nav">
-          <li>
-            <Link to="/">Homepage</Link>
-          </li>
-          <li>
-            <Link to="/about/">About</Link>
-          </li>
-          <li>
-            <Link to="/contact/">Contact</Link>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div className="eloisa_fn_overlay_window" />
-    <div className="eloisa_fn_widget_menu_wrap">
-      <div className="eloisa_fn_widget_menu_in scrollable">
-        <span className="eloisa_fn_widget_menu_closer">
-          <a href="#" />
-          <span />
-          <span />
-        </span>
-        <div className="eloisa_fn_widget_menu_text">
-          <HTMLContent content={home.quote.childMarkdownRemark.html} />
-        </div>
-        {/* <div className="eloisa_fn_widget_menu_sign">
-          <img src="/img/sign/sign-half-dark.png" alt="#" />
-</div> */}
-        <div className="eloisa_fn_second_menu">
-          <div className="mobile_menu_wrap">
-            <ul className="nav">
-              <li>
-                <Link to="/">Homepage</Link>
-              </li>
-              <li>
-                <Link to="/about/">About</Link>
-              </li>
-              <li>
-                <Link to="/contact/">Contact</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {/* https://github.com/gatsbyjs/gatsby/blob/master/examples/gatsbygram/scrape.js?utm_source=hashnode.com */}
-        {/* <div className="eloisa_fn_instagram_stream widget_menu">
-          <div className="instagram_stream_wrap">
-            <div className="title_instagram">
-              <div className="title_instagram_in">
-                <span>Instagram Stream</span>
-              </div>
-            </div>
-            <ul>
-              <li>
-                <div className="eloisa_fn_instagram_in">
-                  <a href="#">
-                    <img src="/img/instagram/1.jpg" alt="#" />
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div> */}
-      </div>
-    </div>
-  </header>
-);
-
-export default Header;
+      </header>
+    );
+  }
+}

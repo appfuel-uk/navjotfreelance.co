@@ -1,6 +1,7 @@
 .gatsby-image-outer-wrapper {
   width: 530px;
   height: auto;
+  max-width: 100%;
 }
 
 .logo_dark img {

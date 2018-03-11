@@ -6,7 +6,7 @@ import GalleryRow from './GalleryRow';
 export default ({ gallery }) => (
   <div className="elosia_fn_section">
     <div className="eloisa_fn_portfolio_list">
-      <ul>
+      <ul style={{ maxWidth: '100%' }}>
         {gallery.map(({ node }) => <GalleryRow key={node.id} item={node} />)}
       </ul>
       <div className="eloisa_fn_discover_portfolio">
