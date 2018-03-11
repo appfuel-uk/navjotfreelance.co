@@ -121,14 +121,14 @@ export const query = graphql`
       }
       cover {
         title
-        sizes(maxWidth: 690) {
+        sizes(maxWidth: 1490) {
           ...GatsbyContentfulSizes
         }
       }
       images {
         title
         description
-        sizes(maxWidth: 690) {
+        sizes(maxWidth: 1490) {
           ...GatsbyContentfulSizes
         }
       }

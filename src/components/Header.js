@@ -20,7 +20,7 @@ const Header = ({ home }) => (
           <div className="menu_wrap">
             <ul className="nav__hor">
               <li>
-                <Link to="/">Homepage</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/about/">About</Link>
