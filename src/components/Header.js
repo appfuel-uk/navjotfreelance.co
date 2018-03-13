@@ -43,16 +43,14 @@ export default class Header extends React.Component {
           <div className="eloisa_fn_header_in_relative">
             <div className="eloisa_fn_logo">
               <Link className="logo_dark" to="/">
-                <span style={{ fontSize: '28px' }}>NS</span>
-                {/* <img src="/img/logo/logo2.png" alt="#" /> */}
+                <img src="/img/logo/logo.png" alt="#" />
               </Link>
               <Link className="logo_light" to="/">
-                <span style={{ fontSize: '28px' }}>NS</span>
-                {/* <img src="/img/logo/logo2.png" alt="#" /> */}
+                <img src="/img/logo/logo.png" alt="#" />
               </Link>
             </div>
             <div className="eloisa_fn_nav_menu_wrap">
-              <div className="menu_wrap">
+              <div className="menu_wrap" style={{ display: 'none' }}>
                 <ul className="nav__hor">
                   <li>
                     <Link to="/">Home</Link>
@@ -124,7 +122,7 @@ export default class Header extends React.Component {
               <div className="mobile_menu_wrap">
                 <ul className="nav">
                   <li>
-                    <Link to="/">Homepage</Link>
+                    <Link to="/">Home</Link>
                   </li>
                   <li>
                     <Link to="/about/">About</Link>
