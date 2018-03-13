@@ -5,8 +5,9 @@
 }
 
 .logo_dark img {
-  width: 120px;
+  width: 160px;
   height: auto;
+  margin-top: -15px;
 }
 
 p {
